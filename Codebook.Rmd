@@ -1,0 +1,54 @@
+---
+title: "Codebook"
+author: "Bret Barrowman"
+date: "February 3, 2016"
+output: html_document
+---
+# Coursera Getting and Cleaning Data Course Project Codebook
+
+## Dataset 1: tidydf
+
+Tidydf merges several datasets provided by the UCI Human Activity Recognition Using Smartphones project. The tidydf dataset includes a subject identifier, activities, and mean and standard deviation variables for sensor signals. For more information on the UCI HAR dataset, see [link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+
+### Variable 1: Subject ID (subjectID)
+
+Unique subject identifier obtained from "subject_test.txt" and "subject_train.txt" data provided by UCI HAR, ranging from 1-30. 
+
+### Variable 2: Activity (activity)
+
+Obtained from "y_test.txt" and "y_train.txt", codes indicate the activity in which the subject was engaged when the measurements were taken. Tidydf displays the activity labels derived from "activity_labels.txt" according to the following codings. 
+
+1 WALKING
+2 WALKING_UPSTAIRS
+3 WALKING_DOWNSTAIRS
+4 SITTING
+5 STANDING
+6 LAYING
+
+### Variables 3-81
+
+Measurements obtained from subjects' smartphones, and included in "X_test.txt" and "X_train" datsets. For more information on units and statistical transformations, see "features_info.txt".
+
+
+## Dataset 2: groupmeans
+
+Groupmeans provides the means of all measurement variables (see 3-81 above) for each activity for each respondent. The dataset therefore provides 180 observations (6 activities for 30 repsondents) across the 78 measurement variables.
+
+### Variable 1: subject ID
+
+Unique subject identifier ranging from 1-30.
+
+### Variable 2: activity
+
+Activity label
+
+1 WALKING
+2 WALKING_UPSTAIRS
+3 WALKING_DOWNSTAIRS
+4 SITTING
+5 STANDING
+6 LAYING
+
+### Variables 3-81: mean of measurement
+
+Provides the mean of all measurements taken for each subject and each activity. 

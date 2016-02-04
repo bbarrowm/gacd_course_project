@@ -1,0 +1,47 @@
+---
+title: "README"
+author: "Bret Barrowman"
+date: "February 3, 2016"
+output: html_document
+---
+
+#Coursera Getting and Cleaning Data Course Project Readme
+
+## Overview
+
+The script "run_analysis.R" creates and prints to the console two tidy datasets derived from data provided by the UCI Human Activity Recognition Using Smartphones Dataset [link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). The first (tidydf) is a subset of raw HAR data that contains only the mean and standard deviation measurements included in the original test and training datasets, in addition to a subject identifier and an activity indicator. The second(groupmeans) provides the means of each of the measurement variables in tidydf for each activity by each subject, resulting in 180 observations (30 subjects engaged in 6 activities). The following describes the script to create and display the datasets starting from the raw datasets provided by UCI HAR. 
+
+For additional information 
+
+## Step 1: Merge the UCI HAR datasets to create one dataset
+
+HAR provides the raw data for this project in six unique files. Since HAR randomly assigned subjects into a "test" or "training" dataset, there are unique files for each of these sets. "subject_test.txt" and "subject_train.txt" provide unique identifiers ranging from 1-30 for each subject. "y_test.txt" and "y_train.txt" contain the codes for each of six activities (see Codebook.Rmd for more information on codings). Finally, "X_test.txt" and "X_train.txt" contain the raw smartphone measurement data for 561 variables. 
+
+The "run_analysis.R" script reads in these six datasets and merges them in two stages.
+
+1) The respective test and training data are merged together to create distinct "test" and "training" datasets.
+2) The "test" and "training" sets are combined to form one large dataset. 
+
+## Step 2: Extract the measurements on the mean and standard deviation 
+
+This step begins with the full dataset created in step 1 and subsets it to include only variables that refer to mean or standard deviation of the smartphone measurements. To do so, the script reads in a separate list of variable names provided by UCI HAR ("features.txt") and uses R's "grep" function to identify which elements of this list contain the strings "mean()" or "std()". It then subsets the full dataset to contain only the columns derived from the grep function, in addition to the subject ID and activity variables. 
+
+## Step 3: Use descriptive activity names to name the activities in the data set
+
+The raw UCI HAR data for activities("y_test.txt" and "y_train.txt") contains only numeric codings. The corresponding labels for these codings is provided in the separate file "activities_labels.txt". The "run_analysis.R" script reads in these factor labels, changes the activity variable to a factor, and then assigns the factor labels. The resulting dataset displays the activity label (e.g. "walking", "sitting", "standing", etc) rather than the numeric code provided in the raw data. 
+
+## Step 4: Label dataset with descriptive variable names
+
+As UCI HAR provides the variable names in a separate file (see step 2), the "run_analysis.R" script uses that file to rename the variables in the merged dataset which are automatically populated with generic variable names (V1, V2, etc). In order to assign descriptive variable names, the script uses the grep function in step two to create respective vectors for the mean variables and standard deviation variables, in order to match the subset created in step 2. The script then combines these vectors of variable names, attaches the variable names for subjectID and activity to the front of the vector, and assigns the result to the merged dataset using the colnames function. The result is a tidy subset (tidydf) of the merged dataset with descriptive variable names that correspond to those selected in the subsetting process. 
+
+## Step 5: create a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+Step 5 of the "run_analysis.R" script uses the "group_by" and "summarize" funcitons from the dpyr package to calculate the mean of each variable for each subject by activity. For example, the first row of the groupmeans dataset provies the mean of "tBodyAccmeanX" subject 1 for "walking", while the second provides the mean for subject 1 for "walking upstairs", and so on. The result is a tidy dataset with 180 observations (30 subjects engaged in 6 activites) across the 78 smartphone measurment variables. 
+
+## Additional info:
+
+For additional info on the UCI HAR dataset and its constitunet files, see the dataset readme "README.txt" provided with the HAR zip file. 
+
+For additional info on the smartphone measurement variables, their units, and transformations, see the file "features_info.txt" provided with the zip file. 
+
+For general UCI HAR dataset information, see [link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
