@@ -8,7 +8,7 @@ output: html_document
 
 ## Dataset 1: tidydf
 
-Tidydf merges several datasets provided by the UCI Human Activity Recognition Using Smartphones project. The tidydf dataset includes a subject identifier, activities, and mean and standard deviation variables for sensor signals. For more information on the UCI HAR dataset, see [link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+Tidydf merges several datasets provided by the UCI Human Activity Recognition Using Smartphones project. The tidydf dataset includes a subject identifier, activities, and mean and standard deviation variables for sensor signals. For more information see the the UCI HAR dataset [website](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 ### Variable 1: Subject ID (subjectID)
 

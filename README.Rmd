@@ -9,9 +9,8 @@ output: html_document
 
 ## Overview
 
-The script "run_analysis.R" creates and prints to the console two tidy datasets derived from data provided by the UCI Human Activity Recognition Using Smartphones Dataset [link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). The first (tidydf) is a subset of raw HAR data that contains only the mean and standard deviation measurements included in the original test and training datasets, in addition to a subject identifier and an activity indicator. The second(groupmeans) provides the means of each of the measurement variables in tidydf for each activity by each subject, resulting in 180 observations (30 subjects engaged in 6 activities). The following describes the script to create and display the datasets starting from the raw datasets provided by UCI HAR. 
+The script "run_analysis.R" creates and prints to the console two tidy datasets derived from data provided by the [UCI Human Activity Recognition Using Smartphones Dataset](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). The first (tidydf) is a subset of raw HAR data that contains only the mean and standard deviation measurements included in the original test and training datasets, in addition to a subject identifier and an activity indicator. The second(groupmeans) provides the means of each of the measurement variables in tidydf for each activity by each subject, resulting in 180 observations (30 subjects engaged in 6 activities). The following describes the script to create and display the datasets starting from the raw datasets provided by UCI HAR. 
 
-For additional information 
 
 ## Step 1: Merge the UCI HAR datasets to create one dataset
 
@@ -44,4 +43,4 @@ For additional info on the UCI HAR dataset and its constitunet files, see the da
 
 For additional info on the smartphone measurement variables, their units, and transformations, see the file "features_info.txt" provided with the zip file. 
 
-For general UCI HAR dataset information, see [link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+For general UCI HAR dataset information, see  [link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
